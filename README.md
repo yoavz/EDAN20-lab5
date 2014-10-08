@@ -32,7 +32,22 @@ Since our goal was to develop a machine learning model, we needed to extract fea
 2. The POS tags of the first and second words on the stack and the first and second words in the queue.
 3. The POS tags of the first, second, and third words on the stack and the first, second, and third words in the queue.
 
-In addition, each of these models were  
+Each of these models also included two boolean features, encoding whether or not a reduction or a left arc was possible at each step. In addition, parsing actions could either be _labeled_, meaning their function was attached to the action, or _unlabeled_, meaning all actions would be treated equivalently regardless of the label. A _labeled_ parsing action looks like `"la.SS"`, where `"la"` is the parsing action and `"SS"` is the dependency function. For each model, a _labeled_ and _unlabeled_ version was generated, resulting in a total of 6 models, with 4, 6, and 8 features respectively.
 
-Extracting Subject-Verb-Object triples
---------------------------------------
+Implementation and Results
+--------------------------
+
+To implement feature extraction, `ReferenceParser.java` was modified to keep track of the relevant context points at each step in parsing the annotated corpus. The data was then printed into ARFF format so that it could be loaded by Weka to generate the classification models. Here is how the same parsing step looked like in three different models:
+
+```
+Model 1 (unlabeled)
+++	NN	true    false	la
+
+Model 2 (labeled)
+++	NN	NN	AV	true	false	la.++
+
+Model 3 (unlabeled)
+++	NN	ROOT	NN	AV	AV	true	false	la
+```
+
+In addition to generating the data points, ARFF headers had to be written for each of the six models. Once the ARFF files were complete, they were loaded into Weka GUI tool and the models generated using the **J48** algorithm. 
