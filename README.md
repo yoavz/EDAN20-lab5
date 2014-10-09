@@ -50,13 +50,17 @@ Model 3 (unlabeled)
 ++	NN	ROOT	NN	AV	AV	true	false	la
 ```
 
-In addition to generating the data points, ARFF headers had to be written for each of the six models. Once the ARFF files were complete, they were loaded into Weka GUI tool and the models generated using the **J48** algorithm. 
+In addition to generating the data points, ARFF headers had to be written for each of the six models. Once the ARFF files were complete, they were loaded into Weka GUI tool and the models generated using the **J48** algorithm. The following are the respective accuracies of the six models, calculated by Weka using cross-validation analysis with 10 folds.
 
 | Method | Labeled? | Accuracy (%) |
-------------------------------------
+| ------ | -------- | ------------ |
 | 1      | No       | 86.23        |
 | 1      | Yes      | 78.46        |
 | 2      | No       | 91.54        |
-| 2      | Yes      |         |
-| 3      | No       |         |
-| 3      | Yes      |         |
+| 2      | Yes      | 84.00        |
+| 3      | No       | 91.56        |
+| 3      | Yes      | 84.10        |
+
+An interesting and nonintuitive result is that labeling the parsing actions actually leads to a decrease in accuracy. A more intuitive result is that the most accurate model is method 3 (unlabeled), the one with the most features. But the increase from six features (method 2) to eight features (method 3) only results in a very slight increase in accuracy, so the more complex model may not be worth the extra computation costs.
+
+Next week, we will apply these models to parsing an unannotated corpus.
