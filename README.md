@@ -51,3 +51,12 @@ Model 3 (unlabeled)
 ```
 
 In addition to generating the data points, ARFF headers had to be written for each of the six models. Once the ARFF files were complete, they were loaded into Weka GUI tool and the models generated using the **J48** algorithm. 
+
+| Method | Labeled? | Accuracy (%) |
+------------------------------------
+| 1      | No       | 86.23        |
+| 1      | Yes      | 78.46        |
+| 2      | No       | 91.54        |
+| 2      | Yes      |         |
+| 3      | No       |         |
+| 3      | Yes      |         |
