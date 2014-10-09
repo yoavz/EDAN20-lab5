@@ -12,7 +12,7 @@ In this lab, we developed machine learning models to help us in parsing sentence
 * Reduce (`re`) - remove the top of the stack
 * Shift (`sh`) - remove the front of the queue and push it onto the stack
 
-In this labratory we will use classification to develop a model for parsing actions. That is, given a certain parsing context, be able to choose which parsing action is the most correct to take.
+In this labratory we will use classification to develop a model for parsing actions. That is, given a certain parsing context, we will develop an algorithm to choose the most optimal parsing action. 
 
 Parsing an Annotated Corpus
 ---------------------------
